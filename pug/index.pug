@@ -1,0 +1,282 @@
+include mixin.pug
+
+mixin row(ico,text)
+ .header__contact_row
+  .header__contact_icon
+   +icon(ico)
+  p.header__contact_text= text  
+  
+mixin card(ico,title,subtitle)
+ .information__card
+  img(src="images/dest/"+ico+".svg", alt= ico class=ico+"_img")
+  p.information__card_title= title
+  p.information__card_subtitle= subtitle
+  
+  
+mixin prod(ico,title,subtitle,info)
+ .swiper-slide
+  img(src="images/dest/"+ico+".svg", alt= ico class=ico+"_img")
+  .slide__information
+   p.slide__title= title
+   p.slide__subtitle= subtitle
+   p.slide__info= info
+   a(href="").slide__btn подробнее
+   
+mixin path(ico,subtitle,ico2,subtitle2)
+ .advantag__cards_row
+   .advantag__card
+    img(src="images/dest/"+ico+".svg", alt= ico class="advantag_img")
+    .advantag__card_wrapper
+      p.advantag__card_subtitle= subtitle
+   .advantag__card
+    img(src="images/dest/"+ico2+".svg", alt= ico2 class="advantag_img")
+    .advantag__card_wrapper
+      p.advantag__card_subtitle= subtitle2
+  
+
+html
+ head
+  title Kosmetics 
+  link(rel="preconnect" href="https://fonts.gstatic.com")
+  link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet")
+  link(rel="stylesheet" href="css/app.min.css")
+ body
+  //+icon('menu')
+  
+  .wrapper
+   .header
+    .header__inner
+     .header__logo
+      img(src="images/dest/logo.svg" class="header__logo_icon")
+      
+     .header__adres
+      .header__adres_map
+       +icon('map')
+      .header__adres_info
+       p.header__adres_text Москва, 3-я Фрунзенская 1 #[br] Пн-Пт 10:30-17:00
+       
+     .header__contact
+       +row("phone",'8 (919) 035-77-77')
+       +row("mail",'info@promecosmetics.ru')
+       
+     .header__link
+      .header__link_number
+       .header__link_icon
+        +icon('phone')
+       p.header__link_phone 8 (919) 035-77-77 
+      a(href="#").header__link_btn онлайн обучение
+      
+     .header__messege
+      a(href="#").header__messege_link
+       +icon('viber')
+      a(href="#").header__messege_link
+       +icon('vhats')
+      a(href="#").header__messege_link
+       +icon('telegram')
+     
+     a(href="").header__btn получить прайс
+     
+   .menu
+    .menu__inner
+     a(href="#").menu__link о бренде
+     a(href="#").menu__link продукция
+     a(href="#").menu__link как купить
+     a(href="#").menu__link дистрибьюторы
+     a(href="#").menu__link обучение
+     a(href="#").menu__link контакты
+     
+   .startpage
+    .startpage__info
+     p.startpage__info_title Инновационный подход к коже
+     p.startpage__info_subtitle Известная израильская косметика для профессионалов уже в Украине!
+     a(href="#").startpage__info_btn купить
+     
+   .information
+    .information__title Новый уровень индивидуального подхода к коже
+    .information__line
+    .information__cards
+     +card("logos","Кто мы?","Компания ProMe основана в 2015 году группой исследователей и экспертов в области косметологии и дерматологии. Основной разработкой компании ProMe стал принцип ступенчатого проникновения активных веществ. Их взаимодействие обеспечивает долговременный и эффективный результат без агрессивного влияния на кожу.")
+     +card("group","Миссия","Предоставить косметологам возможность достичь максимального результата, самостоятельно подбирая и разрабатывая рецептуру индивидуально для каждого клиента, используя компактную линейку инновационных косметологических препаратов-трансформеров.")
+     +card("target","Цель","Вывести косметологию России на новый уровень индивидуального подхода к коже, используя препараты ProMe. Осуществлять обучение и поставку ProMe быстрым и удобным способом по всей территории России.")
+     
+   .about
+    p.about__title О компании
+    .about__line
+    .about__video
+     video(poster="images/dest/video.png" controls muted src="images/dest/video.mp4" class="video" alt="video")
+    .about__wrapper
+     p.about__text!=' <strong>ProMe</strong> - косметика для профессионалов, разработанная в Израиле ведущими дерматологами и фармацевтами. Мы ушли от обезличенного массового подхода в косметологии. Линейка препаратов-трансформеров создана для индивидуального подхода: cмешивая препараты, специалист тонко подстраивает средства для решения конкретных проблем кожи.'
+     
+   .quality
+    .quality__title Безукоризненное качество
+    .quality__line
+    .quality__text Мы уходим от обезличенного, массового подхода в косметологии к индивидуальному подходу к клиенту, за которым будущее. Наша цель вывести косметологию на новый уровень. Поэтому мы предоставляем профессионалам косметологам уникальную линейку препаратов-трансформеров, для индивидуального подхода к каждому клиенту, чтобы косметолог, комбинируя препараты, становился практически фармацевтом.
+    
+    .qulity__slider
+     .swiper-container
+      .swiper-wrapper
+       +prod("prod",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')
+       
+       +prod("prod1",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')  
+       
+       +prod("prod",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')
+       
+       +prod("prod1",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')
+       
+     .swiper-button-next
+      img(src="images/dest/next.svg" alt="next_btn" class="swiper__btn")
+     .swiper-button-prev
+      img(src="images/dest/prev.svg" alt="prev_btn" class="swiper__btn")
+      
+    .quality__video
+     video(poster="images/dest/video1.png" controls muted src="images/dest/video.mp4" class="video" alt="video")
+     
+    a(href="#").quality__btn получить информацию об акциях бренда
+     
+   .addme
+    .addme__title ADDME
+    .addme__line
+    .addme__text Технология AddMe позволяет косметологам точечно добавлять в кремы, сыворотки, маски, пилинги ProMe такие важные компоненты, как ретинол, высокоэффективные пептидные комплексы, витамины, альфа- и бета-гидроксикислоты, коллаген, эластин, большое количество натуральных и растительных ингредиентов.
+    
+    .addme__slider
+     .swiper-containera
+      .swiper-wrapper
+       +prod("prod",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')
+       
+       +prod("prod1",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')  
+       
+       +prod("prod",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')
+       
+       +prod("prod1",'Cleansing MILK MASK','Идеальная комбинация компонентов для очищения кожи лица, шеи и декольте','500ml / 150ml')
+       
+     .swiper-button-nexta
+      img(src="images/dest/next.svg" alt="next_btn" class="swiper__btn")
+     .swiper-button-preva
+      img(src="images/dest/prev.svg" alt="prev_btn" class="swiper__btn")
+      
+    .addme_information
+     p.addme_information_title ADDME
+     p.addme__information_subtitle Технология AddMe позволяет максимально точно подобрать действующие вещества в зависимости от потребностей кожи на данный момент. Подбирая индивидуальный подход к каждому клиенту и комбинируя препараты, косметолог, работающий на косметике ProMe, становится практически фармацевтом. Благодаря использованию AddMe эффективность и возможности косметических средств многократно увеличиваются.
+     
+     p.addme_information_title ИННОВАЦИОННАЯ ТЕХНОЛОГИЯ
+     p.addme__information_subtitle Все препараты ProMe, эффективны сами по себе, можно использовать в качестве базы для дополнительных активных компонентов, созданных для решения конкретных проблем кожи. Технология AddMe позволяет косметологам точечно добавлять в кремы, сыворотки, маски и пилинги ProMe различные компоненты, увеличивая содержание таких важных элементов, ретинол, высокоэффективные пептидные комплексы, витамины, альфа – и бета- гидроксикислоты, коллаген, эластин, большое количество натуральных и растительных ингредиентов. Принципиальная концепция ProMe – отказ от использования ингредиентов, эффективность которых не была доказана или проверена, синтетических препаратов и ароматизаторов, парабенов, а так же веществ, оказывающих негативное влияние на окружающую среду.
+     
+     p.addme_information_title ProMe
+     p.addme__information_subtitle Эффективно внедряет научные разработки, создавая инновационную линию профессиональной косметики.#[br] #[br] - Уникальная формула#[br] - Наука+Природа#[br] - Сотрудничество с ведущими экспертами в области дерматологии, косметологии и биотехнологий –  краеугольный камень в деятельности компании.
+     
+    .addme__video
+     video(poster="images/dest/video2.png" controls muted src="images/dest/video.mp4" class="video" alt="video")
+     
+   .buy
+    .buy__information
+     .buy__information_title Как купить?
+     .buy__information_subtitle Заполните заявку на сайте.#[br] В ближайшее время #[br] (Пн-Чт с 09.00 до 18.00, Пт. с 09.00 до 16.00)#[br] с Вами свяжется менеджер ProMe.
+     a(href="#").buy__information_btn купить
+     
+   .advantag
+    .advantag__title Преимущества нашей компании
+    .advantag__line
+    .advantag__cards
+     +path("woman","Все препараты без отдушек, красителей и непонятных ингредиентов. Косметика очень высокого качества!","money","С помощью нашей компактной линейки мы покрываем весь спектр всевозможных уходов и решаем практически любую задачу, теперь не обязательно покупать много разных препаратов отдельно для каждого ухода – это значительно экономит Ваши средства.")
+     
+     +path("cup","Вы получаете Уникальные препараты, которые можно смешивать и комбинировать, создавая косметику по индивидуальному рецепту для каждого клиента. Косметолог становится практически фармацевтом!","hand","Не важно, на какой марке Вы работаете, важно сколько клиентов, которые ходят к Вам в салон, покупают домашние уходы у Вас, а не в магазинах или интернет- магазинах. Клиент за ProMe вернется только к Вам, т.к. наши препараты не распространяются в магазинах и интернете.")
+     
+     +path("soap","Создание для своего клиента уникального домашнего ухода, благодаря возможности смешивания препаратов.","man","Полная информационная поддержка. Консультации специалистов. Обучающие семинары и мастер- классы. Возможность он-лайн обучения.")
+     
+   .seminar
+    .seminar__title Расписание семинаров
+    .seminar__line
+    .seminar__info
+     .seminar__info_messege
+      a(href="#").seminar__info_link
+       img(src="images/dest/viberg.svg" alt="messege_btn" class="messege__link_img")
+      a(href="#").seminar__info_link
+       img(src="images/dest/vhatsg.svg" alt="messege_btn" class="messege__link_img")
+      a(href="#").seminar__info_link
+       img(src="images/dest/telegg.svg" alt="messege_btn" class="messege__link_img")
+      a(href="#").seminar__info_link
+       img(src="images/dest/instg.svg" alt="messege_btn" class="messege__link_img")
+     p.seminar__info_text!='Возможно проведение вебинаров по согласованию<br> Запись по телефону/WhatsApp, Viber и Telegram: <strong>8(910) 544-99-99</strong>'
+     a(href="#").seminar__info_btn записаться
+     
+
+   .distrib
+    .distrib__title Наши Дистрибьюторы
+    .distrib__line
+    .distrib__content
+     .distrib__content_info
+      .distrib__content_card
+       p.distrib__content_text Наша сеть дистрибьюторов уже охватывает некоторые крупные города Украины, и мы постоянно в поиске новых партнеров.
+       a(href="#").distrib__content_btn стать партнером
+     .distrib__content_map
+      img(src="images/dest/map.png" alt="map").map_img
+      
+   .add
+    .add__info
+     .add__serificate
+      .serificate__title Сертификаты
+      .serificate__line
+      p.serificate__subtitle Продукция разработана на основе требований международного стандарта качества ISO 22716:2007
+      img(src="images/dest/sertificate.png" alt="sertificate").serificate__img
+     .add__question
+      .question__title Остались вопросы?
+      .question__line
+      p.question__subtitle Оставьте заявку на консультацию и наш менеджер свяжется с Вами в ближайшее время.
+       form
+        .question__form
+         input(type="text" placeholder="Ваше имя" class="question__form_input")
+         input(type="text" placeholder="Ваш телефон" class="question__form_input")
+        input(type="submit" value="стать партнером" class="question__form_btn")
+        input(type="checkbox"  class="question__form_checkbox" id="checkbox")
+        label(for="checkbox").checkbox__label
+          p.label_text Нажимая кнопку, вы даете согласие на обработку персональных данных
+          
+   .footer
+    .footer__inner
+     .footer__logo
+      img(src="images/dest/logo.svg" alt="logo").footer__logotip
+     .footer__dist
+      .footer__dist_title ЭКСКЛЮЗИВНЫЙ ДИСТРИБЬЮТОР PROME В УКРАИНЕ: ООО «ПРОМИРУС»
+      .footer__dist_info
+       .footer__dist_icon
+        +icon("map")
+       .footer__dist_text Москва, 3-я Фрунзенская 10 #[br] Пн-Пт 10:30-17:00
+     .footer__factory
+      .footer__factory_title ПРОИЗВОДИТЕЛЬ
+      .footer__factory_info
+       +icon("map")
+       .footer__factory_text SOMETHING PROFESSIONAL GROUP LTD. #[br]HaShofar St. 53, Ma'ale Adumim, Israel
+     .footer__contacts
+      +row("phone",'8 (919) 035-77-77')
+      +row("phone",'8 (919) 035-77-77')
+      
+     .footer__soc
+      .footer__soc_title ПОДПИСЫВАЙТЕСЬ НА НАС:
+      .footer__soc_media
+       a(href="#").footer__soc_link
+        +icon('inst')
+       a(href="#").footer__soc_link
+        +icon('yt')
+       a(href="#").footer__soc_link
+        +icon('f')
+       a(href="#").footer__soc_link
+        +icon('vk')
+     a(href="#").footer__btn обратный звонок
+    
+
+    
+      
+
+      
+    
+    
+    
+    
+  script(src="js/swiper-bundle.min.js")
+  script(src="js/app.min.js")
+    
+    
+     
+     
+
+  
